@@ -28,7 +28,7 @@ void
 print_tstamp(){
   struct timeval tv;
   gettimeofday(&tv, NULL);
-  cout << tv.tv_sec << "." << setfill('0') << setw(6) << tv.tv_usec;
+  cout << dec << tv.tv_sec << "." << setfill('0') << setw(6) << tv.tv_usec;
 }
 
 /*********************************************************************/
