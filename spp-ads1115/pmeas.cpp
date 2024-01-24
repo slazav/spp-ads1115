@@ -32,7 +32,7 @@ main(int argc, char *argv[]){
     uint8_t addr1=0x48; // 1st card
     uint8_t addr2=0x49; // 2nd card
 
-    std::vector<std::string> chans = {"A", "B", "C", "D", "E"};
+    std::vector<std::string> chans = {"A", "B", "C", "D", "E", "F"};
 
     const char *range = "4.096";
     const char *rate  = "8";
@@ -86,9 +86,21 @@ main(int argc, char *argv[]){
           ch[0]-=4;
           v = dev2.meas(ch,range,rate);
         }
+
         // voltage dividers 10k/(10k+20k) on the board
         v*=3;
-        db.stream() << "put_flt pumps_p" << i+1 << " " << fixed << setw(6) << dev1.tstamp() << " " << v << "\n";
+
+        const char *name = 0;
+        switch (i){
+          case 0: name = "press_traps"; break;
+          case 1: name = "press_cond";  break;
+          case 2: name = "press_1K";    break;
+          case 3: name = "press_cell_panel"; break;
+          case 4: name = "press_still"; break;
+          case 5: name = "press_misc";  break;
+        }
+        if (!name) continue;
+        db.stream() << "put_flt " << name << " " << fixed << setw(6) << dev1.tstamp() << " " << v << "\n";
         full_log << " " << v;
       }
       full_log << "\n";
