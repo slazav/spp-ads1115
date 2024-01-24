@@ -2,6 +2,7 @@
 #define MY_ADS1115_H
 
 #include <string>
+#include <stdint.h>
 
 class ADS1115 {
   int fd;

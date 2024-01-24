@@ -1,6 +1,8 @@
 #ifndef MY_I2C_H
 #define MY_I2C_H
 
+#include <stdint.h>
+
 int i2c_open(const char *path, uint8_t addr);
 void i2c_close(int fd);
 
