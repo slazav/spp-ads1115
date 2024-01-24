@@ -8,4 +8,4 @@ prefix     ?= $(DESTDIR)/usr
 bindir     ?= $(prefix)/bin
 
 install: all
-	nstall -D -m755 ${srcdir}/ads1115 -t ${bindir}
+	install -D -m755 ${srcdir}/ads1115 -t ${bindir}
