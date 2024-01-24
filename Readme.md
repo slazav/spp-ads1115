@@ -1,4 +1,4 @@
-SPP interface to ADS1113/1114/1115 ADC converter
+## SPP interface to ADS1113/1114/1115 ADC converter
 
 V.Zavjalov (vl.zavjalov at gmail dot com), 2021-2024
 
