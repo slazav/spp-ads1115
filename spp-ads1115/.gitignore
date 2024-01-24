@@ -1,4 +1,5 @@
 *.o
 *.a
 ads1115
+pmeas
 Makefile.deps
